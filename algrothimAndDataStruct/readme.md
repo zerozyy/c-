@@ -7,3 +7,7 @@ readme.md
 选择排序：O（n2）思路：每次找最小值，从第一个位置开始放
 
 插入排序：O（n2）思路：从前往后，向前插入
+
+ <img src="./insertSort.gif" width = "500" height = "%50" alt="插入排序" align=center />
+ 
+ 
