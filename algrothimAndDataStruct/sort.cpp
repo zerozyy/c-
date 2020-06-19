@@ -97,6 +97,36 @@ void mergeSort(int a[],int left,int right)
      mergeSort(a,mid+1,right);
      merge(a,left,mid,right);
  }
+
+//6、堆排序
+//构造大顶堆  根节点大于 左右子节点
+void maxheap(int a[],int start,int end)
+{
+	int l=2*start+1;//该根节点的左节点
+	for(;l<=end;start=l,l=2*l+1)
+	//将最大值交换到根节点，同时根节点更新为被交换的值  防止被交换下去的节点不满足其子树的根节点最大  
+	{
+		if(l<end && a[l]<=a[l+1]) l++;//只跟最大的比较
+		if(a[l]<=a[start]) break;
+		else
+		{
+			swap(a[l],a[start]);//交换
+		} 
+	}
+}
+ void heapSort(int a[],int n)
+{
+  for(int i=n/2-1;i>=0;i--)
+  {
+	  maxheap(a,i,n-1);//构造大顶堆
+  }
+  for(int i=n-1;i>0;--i)
+  {//从最后一个元素开始调整
+	swap(a[i],a[0]);//a[0] 一直是当前最大值
+	maxheap(a,0,i-1);//调整过的排除
+  }
+
+}
 //测试主函数
 int main()
 {
