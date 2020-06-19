@@ -1,4 +1,4 @@
-
+﻿
 
 #include<iostream>
 using namespace std;
@@ -74,7 +74,7 @@ void merge(int a[],int left,int mid,int right)
  //将两个子段有序排在一起
  int i=left,j=mid+1;
  int len=right-left+1;
- int *temp=new int(len);//辅助空间
+ int *temp=new int[len];//辅助空间
  int index=0;
      while(i<=mid && j<=right)
      {
@@ -87,6 +87,7 @@ void merge(int a[],int left,int mid,int right)
      {
       a[left++]=temp[i];
       }
+	delete []temp;
  }
 void mergeSort(int a[],int left,int right)
 {
